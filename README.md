@@ -4,6 +4,7 @@
 
 + 添加 mongo Pipeline
 + 添加 mongo Schedule （去重 优先级 状态 GET/POST）
++ 添加 Jsoup Downloader
 
 
 ![logo](http://webmagic.io/images/logo.jpeg)
