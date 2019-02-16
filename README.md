@@ -1,3 +1,11 @@
+## 对webmagic项目做一些定制化修改，为以后的使用更加方便
+
+### TODO
+
++ 添加 mongo Pipeline
++ 添加 mongo Schedule （去重 优先级 状态 GET/POST）
+
+
 ![logo](http://webmagic.io/images/logo.jpeg)
 
 [Readme in Chinese](https://github.com/code4craft/webmagic/tree/master/README-zh.md)
