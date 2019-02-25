@@ -54,6 +54,7 @@
         <module>webmagic-selenium</module>
         <module>webmagic-saxon</module>
         <module>webmagic-samples</module>
+        <module>webmagic-custom-wz</module>
     </modules>
 
     <dependencyManagement>
