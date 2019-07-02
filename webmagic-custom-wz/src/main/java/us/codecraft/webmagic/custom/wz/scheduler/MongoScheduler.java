@@ -4,6 +4,7 @@ import com.alibaba.fastjson.JSON;
 import com.mongodb.MongoClient;
 import com.mongodb.ServerAddress;
 import com.mongodb.client.MongoCollection;
+import com.mongodb.client.model.FindOneAndUpdateOptions;
 import org.bson.Document;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -65,7 +66,9 @@ public class MongoScheduler implements Scheduler {
         Document update = new Document();
         update.put("$set", setDoc);
 
-        Document doc = getCollection().findOneAndUpdate(query, update);
+        FindOneAndUpdateOptions options = new FindOneAndUpdateOptions().sort(new Document("priority", -1));
+
+        Document doc = getCollection().findOneAndUpdate(query, update, options);
 
         return docToRequest(doc);
     }
