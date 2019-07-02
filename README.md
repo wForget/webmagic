@@ -1,5 +1,7 @@
 ## 对webmagic项目做一些定制化修改，为以后的使用更加方便
 
+定制的模块作为独立模块（webmagic-custom-wz）
+
 ### TODO
 
 + 添加 mongo Pipeline
