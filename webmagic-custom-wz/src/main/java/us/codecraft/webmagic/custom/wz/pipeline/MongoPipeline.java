@@ -19,9 +19,9 @@ import java.util.List;
 /**
  * Created by hadoop on 2019/2/25.
  *
- * MongoPipeline 向 MongoDB 中写入数据
- * 在resultItems 中指定 db col，如果没有指定需要在初始化时指定
- * 在 resultItems 中设置 value 表示保存的数据，类型需要是 WriteModel<Document> 或者 List<WriteModel<Document>> 的实现类型
+ * MongoPipeline 向 MongoDB 中写入数据 <br>
+ * 在resultItems 中指定 db col，如果没有指定需要在初始化时指定 <br>
+ * 在 resultItems 中设置 value 表示保存的数据，类型需要是 WriteModel&lt;Document&gt; 或者 List&lt;WriteModel&lt;Document&gt;&gt; 的实现类型 <br>
  *
  */
 public class MongoPipeline implements Pipeline {
@@ -32,12 +32,24 @@ public class MongoPipeline implements Pipeline {
     private String defaultDb;
     private String defaultCol;
 
+    public MongoPipeline(MongoClient client) {
+        this(client, null, null);
+    }
+
+    public MongoPipeline(MongoClient client, String db, String col) {
+        this.client = client;
+        this.defaultDb = db;
+        this.defaultCol = col;
+    }
+
     public MongoPipeline(String cluster) {
         this(cluster, null, null);
     }
 
     public MongoPipeline(String cluster, String db, String col) {
-        initMongo(cluster, db, col);
+        initMongoClient(cluster);
+        this.defaultDb = db;
+        this.defaultCol = col;
     }
 
     @Override
@@ -79,10 +91,8 @@ public class MongoPipeline implements Pipeline {
         return client.getDatabase(db).getCollection(col);
     }
 
-    private void initMongo(String cluster, String db, String col) {
+    private void initMongoClient(String cluster) {
         client = new MongoClient(getServerAddresses(cluster));
-        this.defaultDb = db;
-        this.defaultCol = col;
     }
 
     private static List<ServerAddress> getServerAddresses(String cluster) {

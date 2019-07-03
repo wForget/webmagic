@@ -2,11 +2,17 @@
 
 定制的模块作为独立模块（webmagic-custom-wz）
 
+### DONE
+
++ Mongo Pipeline
++ Jsoup Downloader
++ Local ProxyProvider
++ Mongo Scheduler （去重 优先级 状态 GET/POST）
++ Mongo Scheduler SpiderListener
+
 ### TODO
 
-+ 添加 mongo Pipeline
-+ 添加 mongo Schedule （去重 优先级 状态 GET/POST）
-+ 添加 Jsoup Downloader
++ 
 
 
 ![logo](http://webmagic.io/images/logo.jpeg)
